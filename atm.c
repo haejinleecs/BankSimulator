@@ -6,9 +6,6 @@
 #include "errors.h"
 #include "trace.h"
 
-// The following functions should be used to read and write
-// groups of data over the pipes.  Use them in the implementation
-// of the `atm` function below!
 
 // Performs a `write` call, checking for errors and handlings
 // partial writes. If there was an error it returns ERR_PIPE_WRITE_ERR.
@@ -64,11 +61,9 @@ int atm(int bank_out_fd, int atm_in_fd, int atm_id, Command *cmd) {
 
   int status = SUCCESS;
 
-  // TODO 1
   if(atm_id != i)
     return ERR_UNKNOWN_ATM;
 
-  // TODO 2
   status = checked_write(bank_out_fd, cmd, MESSAGE_SIZE);
   if(status != SUCCESS)
     return status;
